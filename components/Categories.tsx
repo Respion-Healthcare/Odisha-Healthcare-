@@ -2,7 +2,7 @@
 
 const categories = [
   {
-    icon: "🫁",
+    image: "/images/Category/bipap cpap.jpg",
     title: "CPAP & BiPAP Therapy",
     desc:
       "Philips DreamStation, ResMed AirSense, BiPAP Auto — sleep therapy machines with masks and accessories.",
@@ -11,7 +11,7 @@ const categories = [
   },
 
   {
-    icon: "🛏️",
+    image: "/images/Category/hospital bed.jpg",
     title: "Hospital Beds",
     desc:
       "Electric & manual ICU, semi-fowler and Fowler beds for home & clinical use.",
@@ -19,7 +19,7 @@ const categories = [
   },
 
   {
-    icon: "💉",
+    image: "/images/Category/suction machiene.jpg",
     title: "Suction Machines",
     desc:
       "Portable & bedside suction units, catheters and accessories.",
@@ -27,7 +27,7 @@ const categories = [
   },
 
   {
-    icon: "♿",
+    image: "/images/Category/wheel chairs.jpg",
     title: "Wheelchairs",
     desc:
       "Standard, motorized, recliner and pediatric wheelchairs.",
@@ -35,7 +35,7 @@ const categories = [
   },
 
   {
-    icon: "🩺",
+   image: "/images/Category/pulse.jpg",
     title: "Pulse Oximeters",
     desc:
       "Fingertip, tabletop and handheld SpO₂ monitors with accurate readings.",
@@ -43,7 +43,7 @@ const categories = [
   },
 
   {
-    icon: "💨",
+    image: "/images/Category/nebulizer.jpg",
     title: "Nebulisers",
     desc:
       "Compressor and mesh nebulisers for asthma and respiratory therapy.",
@@ -51,7 +51,7 @@ const categories = [
   },
 
   {
-    icon: "🩸",
+    image: "/images/Category/bp monitor.jpg",
     title: "BP Monitors",
     desc:
       "Upper arm and wrist digital BP machines with clinical-grade accuracy.",
@@ -59,7 +59,7 @@ const categories = [
   },
 
   {
-    icon: "😷",
+    image: "/images/Category/mask and accesories.jpg",
     title: "Masks & Accessories",
     desc:
       "Full-face, nasal pillow, humidifiers, tubing and CPAP accessories.",
@@ -95,20 +95,21 @@ export default function Categories() {
               item.featured ? "featured" : ""
             }`}
           >
-            {item.featured && (
-              <span className="cat-badge">
-                ★ Best Sellers
-              </span>
-            )}
+           <img
+  src={item.image}
+  alt={item.title}
+  className="cat-bg"
+/>
 
-            <div className="cat-icon">
-              {item.icon}
-            </div>
+{item.featured && (
+  <span className="cat-badge">
+    ★ Best Sellers
+  </span>
+)}
 
-            <div className="cat-name">
-              {item.title}
-            </div>
-
+<div className="cat-name">
+  {item.title}
+</div>
             <div className="cat-desc">
               {item.desc}
             </div>
@@ -187,19 +188,25 @@ export default function Categories() {
             border-color 0.3s,
             box-shadow 0.3s;
         }
-
+.cat-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
         .cat-card::before {
           content: "";
           position: absolute;
           inset: 0;
 
-          background: linear-gradient(
-            135deg,
-            rgba(180, 0, 40, 0.12) 0%,
-            transparent 60%
-          );
+         background: linear-gradient(
+  to top,
+  rgba(0,0,0,0.85),
+  rgba(0,0,0,0.25)
+);
 
-          opacity: 0;
+opacity: 1;
           transition: opacity 0.3s;
         }
 
@@ -274,7 +281,7 @@ export default function Categories() {
           font-family: "Playfair Display", serif;
           font-size: 1.2rem;
           font-weight: 700;
-
+color: white;
           margin-bottom: 10px;
 
           position: relative;
@@ -285,7 +292,7 @@ export default function Categories() {
           font-size: 0.85rem;
           color: var(--muted);
           line-height: 1.6;
-
+color: rgba(255,255,255,0.85);
           position: relative;
           z-index: 2;
         }
@@ -296,7 +303,7 @@ export default function Categories() {
           font-family: "Space Mono", monospace;
           font-size: 0.75rem;
 
-          color: var(--rose);
+          color: white;
 
           letter-spacing: 0.05em;
 

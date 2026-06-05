@@ -2,28 +2,18 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { products } from "@/lib/products";
 
-const products = [
-  {
-    category: "cpap",
-    title: "ResMed AirSense 11",
-    image: "/images/cpap.jpg",
-  },
-  {
-    category: "bipap",
-    title: "DreamStation BiPAP",
-    image: "/images/bipap.jpg",
-  },
-  {
-    category: "beds",
-    title: "Electric ICU Bed",
-    image: "/images/bed.jpg",
-  },
-  {
-    category: "monitors",
-    title: "Omron BP Monitor",
-    image: "/images/bp.jpg",
-  },
+const filters = [
+  { label: "All", value: "all" },
+  { label: "CPAP", value: "cpap-machine" },
+  { label: "BiPAP", value: "bipap-machine" },
+  { label: "Oxygen", value: "oxygen-concentrator" },
+   { label: "Hospital Beds", value: "hospital-bed" },
+  { label: "Suction Machine", value: "suction-machine" },
+  { label: "Nebulizer", value: "nebulizer" },
+  { label: "BP Monitor", value: "bp-monitor" },
+  { label: "Masks", value: "nasal-mask" },
 ];
 
 export default function Products() {
@@ -31,7 +21,7 @@ export default function Products() {
 
   const filtered =
     filter === "all"
-      ? products
+      ? products.slice(0, 12)
       : products.filter((p) => p.category === filter);
 
   return (
@@ -43,28 +33,28 @@ export default function Products() {
       </h2>
 
       <div className="filters">
-        {["all", "cpap", "bipap", "beds", "monitors"].map((f) => (
+        {filters.map((f) => (
           <button
-            key={f}
-            onClick={() => setFilter(f)}
-            className={filter === f ? "active" : ""}
+            key={f.value}
+            onClick={() => setFilter(f.value)}
+            className={filter === f.value ? "active" : ""}
           >
-            {f}
+            {f.label}
           </button>
         ))}
       </div>
 
       <div className="grid">
         {filtered.map((product) => (
-          <div className="card" key={product.title}>
+          <div className="card" key={product.id}>
             <Image
-              src={product.image}
-              alt={product.title}
+              src={product.images[0]}
+              alt={product.name}
               width={400}
               height={300}
             />
 
-            <h3>{product.title}</h3>
+            <h3>{product.name}</h3>
           </div>
         ))}
       </div>
@@ -92,7 +82,7 @@ export default function Products() {
 
         .grid {
           display: grid;
-          grid-template-columns: repeat(3,1fr);
+          grid-template-columns: repeat(3, 1fr);
           gap: 24px;
         }
 
@@ -103,22 +93,24 @@ export default function Products() {
           overflow: hidden;
         }
 
-        img {
+        .card :global(img) {
           width: 100%;
-          height: auto;
+          height: 260px;
+          object-fit: cover;
         }
 
         h3 {
           padding: 20px;
+          font-size: 1rem;
         }
 
-        @media(max-width: 900px) {
+        @media (max-width: 900px) {
           .grid {
             grid-template-columns: 1fr 1fr;
           }
         }
 
-        @media(max-width: 600px) {
+        @media (max-width: 600px) {
           .grid {
             grid-template-columns: 1fr;
           }
