@@ -20,14 +20,14 @@ export default function Footer() {
 
           <div className="footer-contact">
             <p>
-              📍 Plot 42, Sahid Nagar,
+              📍 Plot 331- A, Sahid Nagar,
               Bhubaneswar — 751007
             </p>
 
             <p>
               📞{" "}
-              <a href="tel:+919876543210">
-                +91 98765 43210
+              <a href="tel:+917381586575">
+                +91 73815 86575
               </a>
             </p>
 

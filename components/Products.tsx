@@ -17,12 +17,26 @@ const filters = [
 ];
 
 export default function Products() {
-  const [filter, setFilter] = useState("all");
+ const [filter, setFilter] = useState("all");
+const [showAll, setShowAll] = useState(false);
 
-  const filtered =
-    filter === "all"
-      ? products.slice(0, 12)
-      : products.filter((p) => p.category === filter);
+const allProducts = [
+  ...products.filter((p) => p.category === "cpap-machine").slice(0, 2),
+  ...products.filter((p) => p.category === "bipap-machine").slice(0, 2),
+  ...products.filter((p) => p.category === "oxygen-concentrator").slice(0, 2),
+  ...products.filter((p) => p.category === "nasal-mask").slice(0, 2),
+  ...products.filter((p) => p.category === "full-face-mask").slice(0, 2),
+];
+
+const filtered =
+  filter === "all"
+    ? allProducts
+    : products.filter((p) => p.category === filter);
+
+const displayedProducts =
+  filter === "all" && !showAll
+    ? filtered.slice(0, 10)
+    : filtered;
 
   return (
     <section id="products">
@@ -45,7 +59,7 @@ export default function Products() {
       </div>
 
       <div className="grid">
-        {filtered.map((product) => (
+        {displayedProducts.map((product) => (
           <div className="card" key={product.id}>
             <Image
               src={product.images[0]}
@@ -58,6 +72,17 @@ export default function Products() {
           </div>
         ))}
       </div>
+
+{filter === "all" && !showAll && (
+  <div className="view-more-wrap">
+    <button
+      className="view-more-btn"
+      onClick={() => setShowAll(true)}
+    >
+      View More Products
+    </button>
+  </div>
+)}
 
       <style jsx>{`
         .filters {
@@ -81,10 +106,10 @@ export default function Products() {
         }
 
         .grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
-        }
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
 
         .card {
           background: var(--card-bg);
@@ -94,16 +119,30 @@ export default function Products() {
         }
 
         .card :global(img) {
-          width: 100%;
-          height: 260px;
-          object-fit: cover;
-        }
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+       h3 {
+  padding: 12px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
 
-        h3 {
-          padding: 20px;
-          font-size: 1rem;
-        }
+.view-more-wrap {
+  text-align: center;
+  margin-top: 30px;
+}
 
+.view-more-btn {
+  background: var(--maroon);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+  
         @media (max-width: 900px) {
           .grid {
             grid-template-columns: 1fr 1fr;

@@ -54,7 +54,7 @@ export const products: Product[] = [
 { id: 1, slug: "resmed-airfit-n20-nasal-mask", name: "AirFit™ N20", price: 3149, 
   offer: { type: "percentage", value: 25 }, category: "nasal-mask", 
   description: "Comfortable nasal mask for CPAP users.",
-   images: ["/images/banner1.webp", "/images/Mask/Resmed AirFit™ N20 Nasal Mask/1.webp",
+   images: ["/images/Mask/Resmed AirFit™ N20 Nasal Mask/1.webp",
      "/images/Mask/Resmed AirFit™ N20 Nasal Mask/2.webp", "/images/Mask/Resmed AirFit™ N20 Nasal Mask/3.webp"],
       specifications: [{ label: "Brand", value: "ResMed" }, { label: "Category", value: "Mask" }] }, 
 { id: 29, slug: "airfit-n20-classic", name: "AirFit™ N20 Classic", price: 4200, offer: { type: "percentage", value: 25 }, category: "nasal-mask", description: "Classic nasal mask with forehead support for stable and comfortable therapy.", images: ["/images/Mask/Resmed AirFit™ N20 Classic Mask/1.webp", "/images/Mask/Resmed AirFit™ N20 Classic Mask/2.webp", "/images/Mask/Resmed AirFit F30i Full Face Mask/5.webp"], specifications: [{ label: "Brand", value: "ResMed" }, { label: "Category", value: "Nasal Mask" }] },
@@ -62,7 +62,7 @@ export const products: Product[] = [
 { id: 31, slug: "best-fit-2-nasal-mask", name: "BEST FIT 2 NASAL MASK", price: 4500, offer: { type: "percentage", value: 10 }, category: "nasal-mask", description: "Lightweight and comfortable nasal mask for daily CPAP therapy.", images: ["/images/Mask/Resmed Best Fit 2 Nasal Mask.webp","/images/Mask/Resmed AirFit F30i Full Face Mask/5.webp"], specifications: [{ label: "Brand", value: "BMC" }, { label: "Category", value: "Nasal Mask" }] },
 
 //Full Face Mask
-{ id: 4, slug: "resmed-airfit-f20-full-face-mask", name: "Resmed AirFit F20 Full Face Mask", price: 7300, offer: { type: "percentage", value: 25 }, category: "full-face-mask", description: "Full face CPAP mask with superior comfort.", images: ["/images/Product1.jpg", "/images/Mask/Resmed AirTouch™ F20 Full Face Mask.webp", "/images/Mask/Resmed AirFit™ F20 Full Face Mask.webp", "/images/All.webp"], specifications: [{ label: "Brand", value: "ResMed" }, { label: "Category", value: "Full Face Mask" }] },
+{ id: 4, slug: "resmed-airfit-f20-full-face-mask", name: "Resmed AirFit F20 Full Face Mask", price: 7300, offer: { type: "percentage", value: 25 }, category: "full-face-mask", description: "Full face CPAP mask with superior comfort.", images: ["/images/Mask/Resmed AirTouch™ F20 Full Face Mask.webp", "/images/Mask/Resmed AirFit™ F20 Full Face Mask.webp", "/images/All.webp"], specifications: [{ label: "Brand", value: "ResMed" }, { label: "Category", value: "Full Face Mask" }] },
 // { id: 32, slug: "airfit-f30", name: "AirFit™ F30", price: 7800, offer: { type: "percentage", value: 15 }, category: "full-face-mask", description: "Minimal-contact full face mask designed for comfort and freedom.", images: ["/images/Mask/AirFit-F30/1.webp", "/images/Mask/AirFit-F30/2.webp", "/images/Mask/AirFit-F30/3.webp"], specifications: [{ label: "Brand", value: "ResMed" }, { label: "Category", value: "Full Face Mask" }] },
 { id: 33, slug: "airfit-f30i", name: "AirFit™ F30i", price: 8500, offer: { type: "flat", value: 1000 }, category: "full-face-mask", description: "Top-of-head tube full face mask for flexible sleep movement.", images: ["/images/Mask/Resmed AirFit F30i Full Face Mask/1.webp", "/images/Mask/Resmed AirFit F30i Full Face Mask/2.webp","/images/Mask/Resmed AirFit F30i Full Face Mask/3.webp","/images/Mask/Resmed AirFit F30i Full Face Mask/4.webp","/images/Mask/Resmed AirFit F30i Full Face Mask/5.webp"], specifications: [{ label: "Brand", value: "ResMed" }, { label: "Category", value: "Full Face Mask" }] },
 { id: 34, slug: "airtouch-f20", name: "AirTouch™ F20", price: 9200, offer: { type: "percentage", value: 20 }, category: "full-face-mask", description: "UltraSoft memory foam cushion full face CPAP mask.", images: ["/images/Mask/Resmed AirTouch™ F20 Full Face Mask.webp", "/images/Mask/Resmed AirFit F30i Full Face Mask/5.webp"], specifications: [{ label: "Brand", value: "ResMed" }, { label: "Category", value: "Full Face Mask" }] },
@@ -120,7 +120,7 @@ export const products: Product[] = [
    specifications: [{ label: "Brand", value: "ResMed" }, { label: "Model", value: "AirSense 11" }] },
 
 { id: 9, slug: "airmini-autoset-cpap-device", name: "AirMini™ AutoSet CPAP Device", price: 45500, category: "cpap-machine", description: "Portable CPAP device.",
- images: ["/images/Product4.webp", "/images/Devices/AirMini™ AutoSet CPAP Device/2.webp",
+ images: ["/images/Devices/AirMini™ AutoSet CPAP Device/1.webp", "/images/Devices/AirMini™ AutoSet CPAP Device/2.webp",
    "/images/Devices/AirMini™ AutoSet CPAP Device/5.webp", 
    "/images/Devices/AirMini™ AutoSet CPAP Device/8.webp"], 
    specifications: [{ label: "Brand", value: "ResMed" }, { label: "Type", value: "Auto CPAP" }, { label: "Category", value: "CPAP Machine" }] },

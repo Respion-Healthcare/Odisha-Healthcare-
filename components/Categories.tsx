@@ -65,6 +65,13 @@ const categories = [
       "Full-face, nasal pillow, humidifiers, tubing and CPAP accessories.",
     count: "200+ Products",
   },
+  {
+  image: "/images/Category/oc.jpg",
+  title: "Oxygen Concentrators",
+  desc:
+    "Portable and stationary oxygen concentrators for homecare, hospitals and respiratory support.",
+  count: "50+ Products",
+},
 ];
 
 export default function Categories() {
