@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { products } from "@/lib/products";
 
@@ -9,7 +10,7 @@ const filters = [
   { label: "CPAP", value: "cpap-machine" },
   { label: "BiPAP", value: "bipap-machine" },
   { label: "Oxygen", value: "oxygen-concentrator" },
-   { label: "Hospital Beds", value: "hospital-bed" },
+  { label: "Hospital Beds", value: "hospital-bed" },
   { label: "Suction Machine", value: "suction-machine" },
   { label: "Nebulizer", value: "nebulizer" },
   { label: "BP Monitor", value: "bp-monitor" },
@@ -17,26 +18,24 @@ const filters = [
 ];
 
 export default function Products() {
- const [filter, setFilter] = useState("all");
-const [showAll, setShowAll] = useState(false);
+  const [filter, setFilter] = useState("all");
+  const [showAll, setShowAll] = useState(false);
 
-const allProducts = [
-  ...products.filter((p) => p.category === "cpap-machine").slice(0, 2),
-  ...products.filter((p) => p.category === "bipap-machine").slice(0, 2),
-  ...products.filter((p) => p.category === "oxygen-concentrator").slice(0, 2),
-  ...products.filter((p) => p.category === "nasal-mask").slice(0, 2),
-  ...products.filter((p) => p.category === "full-face-mask").slice(0, 2),
-];
+  const allProducts = [
+    ...products.filter((p) => p.category === "cpap-machine").slice(0, 2),
+    ...products.filter((p) => p.category === "bipap-machine").slice(0, 2),
+    ...products.filter((p) => p.category === "oxygen-concentrator").slice(0, 2),
+    ...products.filter((p) => p.category === "nasal-mask").slice(0, 2),
+    ...products.filter((p) => p.category === "full-face-mask").slice(0, 2),
+  ];
 
-const filtered =
-  filter === "all"
-    ? allProducts
-    : products.filter((p) => p.category === filter);
+  const filtered =
+    filter === "all"
+      ? allProducts
+      : products.filter((p) => p.category === filter);
 
-const displayedProducts =
-  filter === "all" && !showAll
-    ? filtered.slice(0, 10)
-    : filtered;
+  const displayedProducts =
+    filter === "all" && !showAll ? filtered.slice(0, 10) : filtered;
 
   return (
     <section id="products">
@@ -60,7 +59,11 @@ const displayedProducts =
 
       <div className="grid">
         {displayedProducts.map((product) => (
-          <div className="card" key={product.id}>
+          <Link
+            href={`/products/${product.id}`}
+            className="card"
+            key={product.id}
+          >
             <Image
               src={product.images[0]}
               alt={product.name}
@@ -69,20 +72,20 @@ const displayedProducts =
             />
 
             <h3>{product.name}</h3>
-          </div>
+          </Link>
         ))}
       </div>
 
-{filter === "all" && !showAll && (
-  <div className="view-more-wrap">
-    <button
-      className="view-more-btn"
-      onClick={() => setShowAll(true)}
-    >
-      View More Products
-    </button>
-  </div>
-)}
+      {filter === "all" && !showAll && (
+        <div className="view-more-wrap">
+          <button
+            className="view-more-btn"
+            onClick={() => setShowAll(true)}
+          >
+            View More Products
+          </button>
+        </div>
+      )}
 
       <style jsx>{`
         .filters {
@@ -106,43 +109,53 @@ const displayedProducts =
         }
 
         .grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-}
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 16px;
+        }
 
         .card {
+          display: block;
+          text-decoration: none;
+          color: inherit;
           background: var(--card-bg);
           border: 1px solid var(--border);
           border-radius: 20px;
           overflow: hidden;
+          cursor: pointer;
+          transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+          transform: translateY(-5px);
         }
 
         .card :global(img) {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-       h3 {
-  padding: 12px;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
+          width: 100%;
+          height: 160px;
+          object-fit: cover;
+        }
 
-.view-more-wrap {
-  text-align: center;
-  margin-top: 30px;
-}
+        h3 {
+          padding: 12px;
+          font-size: 0.9rem;
+          line-height: 1.4;
+        }
 
-.view-more-btn {
-  background: var(--maroon);
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 50px;
-  cursor: pointer;
-}
-  
+        .view-more-wrap {
+          text-align: center;
+          margin-top: 30px;
+        }
+
+        .view-more-btn {
+          background: var(--maroon);
+          color: #fff;
+          border: none;
+          padding: 12px 24px;
+          border-radius: 50px;
+          cursor: pointer;
+        }
+
         @media (max-width: 900px) {
           .grid {
             grid-template-columns: 1fr 1fr;
